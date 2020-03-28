@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Create a {@link Set} of {@link int} values based on a {@link String} given as
@@ -25,7 +24,7 @@ public class FileSetConverter {
 	 */
 	public static Collection<Set<Integer>> readSetsFromFile(String file) {
 		// create collection to store sets read from file
-		Collection<Set<Integer>> col = new TreeSet<Set<Integer>>();
+		Collection<Set<Integer>> col = new HashSet<Set<Integer>>();
 
 		try {
 			// create reader
@@ -33,12 +32,13 @@ public class FileSetConverter {
 			BufferedReader buffReader = new BufferedReader(reader);
 
 			// read each line from file
-			String line;
-			do {
-				line = buffReader.readLine();
+			String line = buffReader.readLine();
+			while (line != "" && line != null) {
 				// add converted set to collection
 				col.add(stringToSet(line));
-			} while (line != "" || line == null); // last line is empty
+				// read next line
+				line = buffReader.readLine();
+			}
 
 			reader.close();
 

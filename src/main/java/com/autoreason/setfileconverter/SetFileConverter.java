@@ -14,9 +14,9 @@ import java.util.Set;
  */
 public class SetFileConverter {
 	// current number that can be used as unique ID for an object
-	private static int currentNr = 0;
+	static int currentNr = 0;
 	// hash table to store IDs for objects
-	private static Hashtable<Object, Integer> hashtable = new Hashtable<Object, Integer>();
+	static Hashtable<Object, Integer> hashtable = new Hashtable<Object, Integer>();
 
 	/**
 	 * Represent a {@link Set} by a {@link String} that contains a unique ID of each
