@@ -16,8 +16,7 @@ public class SetFileConverterTest {
 	@Test
 	public void testWriteSetToFile() {
 		// reset hash table
-		SetFileConverter.hashtable.clear();
-		SetFileConverter.currentNr = 0;
+		SetFileConverter.reset();
 		// path to test file
 		String file = "src\\test\\resources\\sets.txt";
 		// access file

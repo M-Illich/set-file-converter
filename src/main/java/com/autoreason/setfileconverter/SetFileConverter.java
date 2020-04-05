@@ -84,5 +84,13 @@ public class SetFileConverter {
 		}
 		return id;
 	}
+	
+	/**
+	 * Reset the hash table. Can be used to process a new collection of sets.
+	 */
+	public static void reset() {
+		SetFileConverter.hashtable.clear();
+		SetFileConverter.currentNr = 0;
+	}
 
 }
