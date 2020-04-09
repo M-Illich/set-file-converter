@@ -3,13 +3,14 @@ package com.autoreason.setfileconverter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Set;
 
 /**
- * Store a {@link Set} of arbitrary elements as a line in a text file by assigning an unique
- * {@link int} ID to each set element, such that the set can be represented by a
- * {@link String} that contains these IDs separated by space 
+ * Store a {@link Set} of arbitrary elements as a line in a text file by
+ * assigning an unique {@link int} ID to each set element, such that the set can
+ * be represented by a {@link String} that contains these IDs separated by space
  *
  */
 public class SetFileConverter {
@@ -19,12 +20,43 @@ public class SetFileConverter {
 	static Hashtable<Object, Integer> hashtable = new Hashtable<Object, Integer>();
 
 	/**
+	 * Write a {@link Collection} to a given file by representing its contained
+	 * {@link Set} elements as {@link String} objects
+	 * @param <C>
+	 * 
+	 * @param col  A {@link Collection} of {@link Set} objects
+	 * @param file A {@link String} that defines the path to the file where the
+	 *             transformed collection is stored
+	 */
+	public static <C> void writeCollectionToFile(Collection<Set<C>> col, String file) {
+		try {
+			// create writer
+			FileWriter writer = new FileWriter(file, true);
+			BufferedWriter buffWriter = new BufferedWriter(writer);
+
+			// write each set to collection
+			for (Set<C> set : col) {
+				// convert set to string containing its elements' IDs
+				String setIDs = setToString(set);
+				// write string to file
+				buffWriter.write(setIDs);
+				buffWriter.newLine();
+			}
+			buffWriter.newLine();
+			buffWriter.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
 	 * Represent a {@link Set} by a {@link String} that contains a unique ID of each
 	 * set element, separated by space, and write this string as new line to a named
 	 * file
 	 * 
 	 * @param set  A {@link Set}
-	 * @param file A {@link String} that defines the name of the file where the
+	 * @param file A {@link String} that defines the path to the file where the
 	 *             created set-string is stored
 	 */
 	public static void writeSetToFile(Set<?> set, String file) {
@@ -84,7 +116,7 @@ public class SetFileConverter {
 		}
 		return id;
 	}
-	
+
 	/**
 	 * Reset the hash table. Can be used to process a new collection of sets.
 	 */
