@@ -24,8 +24,8 @@ public class FileSetConverterTest {
 		expctCols.add(colTest);
 		expctCols.add(colTest);
 		
-		// apply method on test file
-		ArrayList<Collection<Set<Integer>>> readCols = FileSetConverter.readCollectionsFromFile("src\\test\\resources\\testSets.txt");
+		// apply method on test file															src\\test\\resources\\
+		ArrayList<Collection<Set<Integer>>> readCols = FileSetConverter.readCollectionsFromFile("/testSets.txt");
 
 		assertEquals(expctCols, readCols);
 	}
@@ -38,8 +38,8 @@ public class FileSetConverterTest {
 		colTest.add(Set.of(3, 1, 2));
 		colTest.add(Set.of(5, 4, 3));
 		colTest.add(Set.of(0, 3, 6));
-		// apply method on test file
-		Collection<Set<Integer>> colRead = FileSetConverter.readSetsFromFile("src\\test\\resources\\testSets.txt");
+		// apply method on test file											src\\test\\resources\\
+		Collection<Set<Integer>> colRead = FileSetConverter.readSetsFromFile("/testSets.txt");
 
 		assertEquals(colTest, colRead);
 	}

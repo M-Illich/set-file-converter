@@ -1,7 +1,7 @@
 package com.autoreason.setfileconverter;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -29,17 +29,20 @@ public class FileSetConverter {
 
 		try {
 			// create reader
-			FileReader reader = new FileReader(file);
-			BufferedReader buffReader = new BufferedReader(reader);
+//			FileReader reader = new FileReader(file);
+//			BufferedReader buffReader = new BufferedReader(reader);		
+			BufferedReader buffReader = new BufferedReader(new InputStreamReader(FileSetConverter.class.getResourceAsStream(file)));
 
 			// read each line from file
 			String line = buffReader.readLine();
+			// create collection to store sets read from file
+			Collection<Set<Integer>> sets;
 
 			while (line != null) {
-				// create collection to store sets read from file
-				Collection<Set<Integer>> sets = new HashSet<Set<Integer>>();
+				// define new collection for sets
+				sets = new HashSet<Set<Integer>>();
 
-				while (!line.isBlank()) {					
+				while (!line.isEmpty()) {
 					// add converted set to collection
 					sets.add(stringToSet(line));
 					// read next line
@@ -51,7 +54,7 @@ public class FileSetConverter {
 				collections.add(sets);
 
 			}
-			reader.close();
+			buffReader.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,19 +78,20 @@ public class FileSetConverter {
 
 		try {
 			// create reader
-			FileReader reader = new FileReader(file);
-			BufferedReader buffReader = new BufferedReader(reader);
+//			FileReader reader = new FileReader(file);
+//			BufferedReader buffReader = new BufferedReader(reader);
+			BufferedReader buffReader = new BufferedReader(new InputStreamReader(FileSetConverter.class.getResourceAsStream(file)));
 
 			// read each line from file
 			String line = buffReader.readLine();
-			while (!line.isBlank() && line != null) {
+			while (line != null && !line.isBlank()) {
 				// add converted set to collection
 				col.add(stringToSet(line));
 				// read next line
 				line = buffReader.readLine();
 			}
 
-			reader.close();
+			buffReader.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
