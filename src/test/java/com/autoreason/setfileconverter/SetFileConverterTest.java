@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Set;
 
 import org.junit.Test;
@@ -19,33 +20,27 @@ public class SetFileConverterTest {
 		SetFileConverter.reset();
 		// path to test file
 		String file = "src\\test\\resources\\sets.txt";
-		// access file
-		FileReader reader = null;
-		try {
-			reader = new FileReader(file);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		BufferedReader buffReader = new BufferedReader(reader);
 		try {
 			// reset text file
 			new FileWriter(file, false).close();
 
 			SetFileConverter.writeSetToFile(Set.of(0, 1, 2, 3), file);
-			assertEquals("0 1 2 3 ", buffReader.readLine());
+
 			SetFileConverter.writeSetToFile(Set.of(4, 5, 6), file);
-			assertEquals("4 5 6 ", buffReader.readLine());
+
 			SetFileConverter.writeSetToFile(Set.of(0, 1, 2, 3), file);
+
+			// access file
+			BufferedReader buffReader = new BufferedReader(
+					new InputStreamReader(FileSetConverter.class.getResourceAsStream("/sets.txt")));
 			assertEquals("0 1 2 3 ", buffReader.readLine());
+			assertEquals("4 5 6 ", buffReader.readLine());
+			assertEquals("0 1 2 3 ", buffReader.readLine());
+
+			buffReader.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				buffReader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 
 	}
