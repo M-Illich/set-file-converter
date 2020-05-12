@@ -13,8 +13,8 @@
       <repositories>       
         <repository>
           <id>github</id>
-          <name>GitHub M-Illich Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/m-illich/packages</url>
+          <name>GitHub M-Illich Maven Snapshots</name>
+		  <url>https://maven.pkg.github.com/m-illich/snapshots</url>
 		  <releases><enabled>false</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
