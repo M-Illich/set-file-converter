@@ -15,7 +15,7 @@
           <id>github</id>
           <name>GitHub M-Illich Apache Maven Packages</name>
           <url>https://maven.pkg.github.com/m-illich/packages</url>
-		  <releases><enabled>true</enabled></releases>
+		  <releases><enabled>false</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
       </repositories>
