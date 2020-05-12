@@ -14,7 +14,7 @@
         <repository>
           <id>github</id>
           <name>GitHub M-Illich Maven Snapshots</name>
-		  <url>https://maven.pkg.github.com/m-illich/snapshots</url>
+		  <url>https://maven.pkg.github.com/m-illich/snapshots/</url>
 		  <releases><enabled>false</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
@@ -25,7 +25,7 @@
   <servers>
     <server>
       <id>github</id>
-      <username>m-illich</username>
+      <username>M-Illich</username>
       <password>c81c0fcef7fd87d3e16c2d86e55019334a42bfd3</password>
     </server>
   </servers>
