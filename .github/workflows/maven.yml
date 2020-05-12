@@ -1,0 +1,11 @@
+# This workflow builds the Maven project and copies settings.xml to the right host directory
+name: Maven package build
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Copy settings
+        run: mkdir -p ~/.m2 && cp .settings.xml ~/.m2/settings.xml
+      - name: Build package with Maven
+        run: mvn package
