@@ -29,11 +29,17 @@
 </build>
 
 <distributionManagement>
-  <snapshotRepository>
+   <repository>
      <id>github</id>
-     <name>GitHub M-Illich Apache Maven Packages</name>
+     <name>GitHub M-Illich Maven Snapshots</name>
      <url>https://maven.pkg.github.com/m-illich/snapshots</url>
-   </snapshotRepository>
+	 <releases>
+        <enabled>false</enabled>
+    </releases>
+    <snapshots>
+        <enabled>true</enabled>
+    </snapshots>
+   </repository>
 </distributionManagement>
 
 </project>
