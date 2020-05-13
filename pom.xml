@@ -40,17 +40,11 @@
 </build>
 
 <distributionManagement>
-   <repository>
+   <snapshotRepository>
      <id>github</id>
      <name>GitHub M-Illich Maven Snapshots</name>
-     <url>https://maven.pkg.github.com/m-illich/snapshots</url>
-	 <releases>
-        <enabled>false</enabled>
-    </releases>
-    <snapshots>
-        <enabled>true</enabled>
-    </snapshots>
-   </repository>
+     <url>https://maven.pkg.github.com/m-illich/snapshots</url>	 
+   </snapshotRepository>
 </distributionManagement>
 
 </project>
