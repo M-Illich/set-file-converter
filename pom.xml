@@ -41,8 +41,7 @@
 
 <distributionManagement>
    <snapshotRepository>
-     <id>github</id>
-     <!-- <name>GitHub M-Illich Maven Snapshots</name> -->
+     <id>github</id>    
      <url>https://maven.pkg.github.com/m-illich/set-file-converter</url>	 
    </snapshotRepository>
 </distributionManagement>
