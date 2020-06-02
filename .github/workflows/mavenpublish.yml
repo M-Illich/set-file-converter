@@ -21,6 +21,7 @@ jobs:
       run: mvn -B package --file pom.xml -U
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn --settings settings.xml deploy 
       env:
-        PASSWORD : ${{ secrets.ACCESS }}
+            PASSWORD : ${{ secrets.ACCESS }}
+      run: mvn --settings settings.xml deploy 
+      
