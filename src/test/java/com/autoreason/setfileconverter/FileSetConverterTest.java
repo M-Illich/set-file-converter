@@ -14,7 +14,7 @@ public class FileSetConverterTest {
 	@Test
 	public void testReadCollectionsFromFile() {
 		// collection that represents sets for test file
-		Collection<Set<Integer>> colTest = new HashSet<Set<Integer>>();
+		Collection<Set<Integer>> colTest = new ArrayList<Set<Integer>>();
 		colTest.add(Set.of(0, 1, 2, 3));
 		colTest.add(Set.of(3, 1, 2));
 		colTest.add(Set.of(5, 4, 3));
@@ -33,7 +33,7 @@ public class FileSetConverterTest {
 	@Test
 	public void testReadSetsFromFile() {
 		// collection that represents sets for test file
-		Collection<Set<Integer>> colTest = new HashSet<Set<Integer>>();
+		Collection<Set<Integer>> colTest = new ArrayList<Set<Integer>>();
 		colTest.add(Set.of(0, 1, 2, 3));
 		colTest.add(Set.of(3, 1, 2));
 		colTest.add(Set.of(5, 4, 3));
