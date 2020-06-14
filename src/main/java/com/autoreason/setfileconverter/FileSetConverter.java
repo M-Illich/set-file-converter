@@ -40,7 +40,7 @@ public class FileSetConverter {
 
 			while (line != null) {
 				// define new collection for sets
-				sets = new HashSet<Set<Integer>>();
+				sets = new ArrayList<Set<Integer>>();
 
 				while (!line.isEmpty()) {
 					// add converted set to collection
@@ -74,7 +74,7 @@ public class FileSetConverter {
 	 */
 	public static Collection<Set<Integer>> readSetsFromFile(String file) {
 		// create collection to store sets read from file
-		Collection<Set<Integer>> col = new HashSet<Set<Integer>>();
+		Collection<Set<Integer>> col = new ArrayList<Set<Integer>>();
 
 		try {
 			// create reader
